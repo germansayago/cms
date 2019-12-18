@@ -73,7 +73,39 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                @yield('title')
+                            </div>
+
+                            <div class="card-body">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        @foreach($errors->all() as $error)
+                                            {{ $error }} <br>
+                                        @endforeach
+                                    </div>
+                                @endif
+                                
+                                @if (session('status'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('status') }}
+                                    </div>
+                                @endif
+
+                                @yield('content')
+                            </div>
+                            
+                            <div class="card-body">
+                                <a href="/" class="text-light">home</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
         </main>
     </div>
 </body>
