@@ -97,6 +97,7 @@
                                 @endif
 
                                 @yield('content')
+                                
                             </div>
                             
                             <div class="card-body">
